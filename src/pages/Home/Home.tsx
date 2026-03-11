@@ -8,37 +8,37 @@ const services = [
     icon: '🚜',
     title: 'Zemní práce',
     description: 'Výkopy základů, bazénů, jímek a terénní úpravy. Disponujeme i minibagrem pro práce v omezených prostorech.',
-    linkTo: '/sluzby',
+    linkTo: '/sluzby#earthworks',
   },
   {
     icon: '🗑️',
     title: 'Kontejnerová doprava',
     description: 'Přistavení kontejnerů a odvoz suti, odpadu a stavebního materiálu. Rychle a spolehlivě.',
-    linkTo: '/sluzby',
+    linkTo: '/sluzby#container-transport',
   },
   {
     icon: '🚛',
     title: 'Dovoz materiálu',
     description: 'Dovoz písku, štěrku a dalšího stavebního materiálu přímo na stavbu.',
-    linkTo: '/sluzby',
+    linkTo: '/sluzby#material-delivery',
   },
   {
     icon: '🦾',
     title: 'Hydraulická ruka',
     description: 'Manipulace s těžkým materiálem, nakládka a vykládka pomocí hydraulické ruky.',
-    linkTo: '/sluzby',
+    linkTo: '/sluzby#hydraulic-arm',
   },
   {
     icon: '🌿',
     title: 'Údržba zeleně',
     description: 'Sekání trávy, údržba pozemků a terénní úpravy pro soukromníky i firmy.',
-    linkTo: '/sluzby',
+    linkTo: '/sluzby#green-maintenance',
   },
   {
     icon: '📞',
     title: 'Individuální přístup',
     description: 'Každou zakázku řešíme na míru. Kontaktujte nás a domluvíme se na nejlepším řešení.',
-    linkTo: '/kontakt',
+    linkTo: '/kontakt#formulare',
   },
 ]
 

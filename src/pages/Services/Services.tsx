@@ -4,6 +4,7 @@ import Hero from '../../components/Hero/Hero'
 
 const categories = [
   {
+    id: 'earthworks',
     icon: '🚜',
     title: 'Zemní práce',
     description: 'Profesionální zemní práce s moderní technikou. Disponujeme bagry různých velikostí, včetně minibagrů pro práci v omezených prostorech.',
@@ -17,6 +18,7 @@ const categories = [
     ],
   },
   {
+    id: 'container-transport',
     icon: '🗑️',
     title: 'Kontejnerová doprava',
     description: 'Zajišťujeme přistavení kontejnerů a odvoz odpadu, suti a dalšího materiálu. Flexibilní termíny a rychlá reakce.',
@@ -30,6 +32,7 @@ const categories = [
     ],
   },
   {
+    id: 'material-delivery',
     icon: '🚛',
     title: 'Dovoz materiálu',
     description: 'Doručíme stavební materiál přímo tam, kde ho potřebujete. Pracujeme s lokálními dodavateli pro zajištění nejlepší ceny.',
@@ -43,6 +46,7 @@ const categories = [
     ],
   },
   {
+    id: 'hydraulic-arm',
     icon: '🦾',
     title: 'Práce hydraulickou rukou',
     description: 'Hydraulická ruka umožňuje manipulaci s těžkým a objemným materiálem bez nutnosti těžké nakladačové techniky.',
@@ -56,6 +60,7 @@ const categories = [
     ],
   },
   {
+    id: 'green-maintenance',
     icon: '🌿',
     title: 'Údržba zeleně a pozemků',
     description: 'Staráme se o pozemky soukromníků, firem i obcí. Od pravidelného sekání trávy po komplexní terénní úpravy.',
@@ -94,7 +99,7 @@ export default function Services() {
             {categories.map((cat, index) => (
               <article
                 key={cat.title}
-                id={cat.title.toLowerCase().replace(/\s+/g, '-')}
+                id={cat.id}
                 className={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-10 items-start`}
               >
                 <div className="lg:w-2/5">

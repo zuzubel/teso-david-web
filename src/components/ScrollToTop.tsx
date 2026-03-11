@@ -14,7 +14,13 @@ export default function ScrollToTop() {
         if (id === 'formulare' && window.innerWidth >= 1024) {
           id = 'kontakt-sekce'
         }
-        document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
+        const el = document.getElementById(id)
+        if (el) {
+          const HEADER_HEIGHT = 64 // h-16
+          const PADDING = 24
+          const top = el.getBoundingClientRect().top + window.scrollY - HEADER_HEIGHT - PADDING
+          window.scrollTo({ top, behavior: 'smooth' })
+        }
       }, 0)
     } else {
       window.scrollTo(0, 0)
