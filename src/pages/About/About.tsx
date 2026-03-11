@@ -145,7 +145,7 @@ export default function About() {
         <div className="container-custom text-center">
           <h2 className="text-3xl font-black text-white mb-4">Chcete s námi spolupracovat?</h2>
           <p className="text-gray-400 mb-8">Kontaktujte nás a společně najdeme nejlepší řešení pro váš projekt.</p>
-          <Link to="/kontakt" className="btn-primary text-lg px-8 py-4">
+          <Link to="/kontakt#formulare" className="btn-primary text-lg px-8 py-4">
             Kontaktujte nás
           </Link>
         </div>

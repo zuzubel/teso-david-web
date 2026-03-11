@@ -132,7 +132,7 @@ export default function Home() {
             <a href="tel:+420736121255" className="bg-white text-accent font-bold px-8 py-4 rounded-lg hover:bg-orange-50 transition-colors text-lg">
               +420 736 121 255
             </a>
-            <Link to="/kontakt" className="border-2 border-white text-white font-bold px-8 py-4 rounded-lg hover:bg-orange-600 transition-colors text-lg">
+            <Link to="/kontakt#formulare" className="border-2 border-white text-white font-bold px-8 py-4 rounded-lg hover:bg-orange-600 transition-colors text-lg">
               Nezávazná poptávka
             </Link>
           </div>

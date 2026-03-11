@@ -34,7 +34,7 @@ export default function Hero({ title, subtitle, showCta = true }: HeroProps) {
         </p>
         {showCta && (
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/kontakt" className="btn-primary text-lg px-8 py-4">
+            <Link to="/kontakt#formulare" className="btn-primary text-lg px-8 py-4">
               Nezávazná poptávka
             </Link>
             <a href="tel:+420736121255" className="btn-secondary text-lg px-8 py-4">

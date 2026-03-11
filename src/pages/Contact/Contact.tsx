@@ -20,9 +20,9 @@ export default function Contact() {
         showCta={false}
       />
 
-      <section className="py-20">
-        <div className="container-custom">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+      <section id="kontakt-sekce" className="py-20">
+        <div  className="container-custom">
+          <div  className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             {/* Contact info */}
             <div>
               <h2 className="text-2xl font-bold text-primary mb-8">Kontaktní údaje</h2>
@@ -90,7 +90,7 @@ export default function Contact() {
             </div>
 
             {/* Form */}
-            <div>
+            <div id="formulare">
               <h2 className="text-2xl font-bold text-primary mb-8">Napište nám</h2>
               <ContactForm />
             </div>

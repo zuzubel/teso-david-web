@@ -101,7 +101,7 @@ export default function Services() {
                   <div className="text-6xl mb-4">{cat.icon}</div>
                   <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4">{cat.title}</h2>
                   <p className="text-gray-600 leading-relaxed mb-6">{cat.description}</p>
-                  <Link to="/kontakt" className="btn-primary">
+                  <Link to="/kontakt#formulare" className="btn-primary">
                     Poptávka zdarma
                   </Link>
                 </div>
@@ -131,7 +131,7 @@ export default function Services() {
             <a href="tel:+420736121255" className="bg-white text-accent font-bold px-8 py-4 rounded-lg hover:bg-orange-50 transition-colors">
               +420 736 121 255
             </a>
-            <Link to="/kontakt" className="border-2 border-white text-white font-bold px-8 py-4 rounded-lg hover:bg-orange-600 transition-colors">
+            <Link to="/kontakt#formulare" className="border-2 border-white text-white font-bold px-8 py-4 rounded-lg hover:bg-orange-600 transition-colors">
               Napsat zprávu
             </Link>
           </div>

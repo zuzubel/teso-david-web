@@ -7,10 +7,12 @@ import Gallery from './pages/Gallery/Gallery'
 import About from './pages/About/About'
 import Contact from './pages/Contact/Contact'
 import JsonLd from './components/JsonLd'
+import ScrollToTop from './components/ScrollToTop'
 
 export default function App() {
   return (
     <BrowserRouter basename="/teso-david-web">
+      <ScrollToTop />
       <JsonLd />
       <div className="flex flex-col min-h-screen">
         <Header />
