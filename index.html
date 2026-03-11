@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="cs">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TESO David – Zemní práce a kontejnerová doprava</title>
+    <script>
+      // Restore path encoded by 404.html for GitHub Pages SPA routing
+      (function() {
+        var p = window.location.search.slice(1);
+        if (p.indexOf('p=/') === 0) {
+          var path = p.slice(3).replace(/~and~/g, '&');
+          var query = '';
+          var qi = path.indexOf('&q=');
+          if (qi !== -1) { query = '?' + path.slice(qi + 3).replace(/~and~/g, '&'); path = path.slice(0, qi); }
+          window.history.replaceState(null, null, '/teso-david/' + path + query + window.location.hash);
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

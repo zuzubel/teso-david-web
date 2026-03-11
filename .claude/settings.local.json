@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:www.tesodavid.cz)",
+      "Bash(npm create:*)",
+      "Bash(npm install:*)",
+      "Bash(npm run:*)",
+      "Bash(git -C /Users/zuzu/repo/Teso-david status 2>&1; gh auth status 2>&1)"
+    ]
+  }
+}
