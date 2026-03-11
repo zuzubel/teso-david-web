@@ -10,7 +10,7 @@ import JsonLd from './components/JsonLd'
 
 export default function App() {
   return (
-    <BrowserRouter basename="/teso-david">
+    <BrowserRouter basename="/teso-david-web">
       <JsonLd />
       <div className="flex flex-col min-h-screen">
         <Header />
