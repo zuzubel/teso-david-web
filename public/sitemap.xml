@@ -11,6 +11,21 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://tesodavid.cz/sluzby/kontejnerova-doprava</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://tesodavid.cz/sluzby/nakladni-autodoprava</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://tesodavid.cz/sluzby/zemni-prace</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://tesodavid.cz/galerie</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>

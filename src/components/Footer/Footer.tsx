@@ -1,68 +1,83 @@
-import { Link } from 'react-router-dom'
-import { Phone, Mail, MapPin } from 'lucide-react'
+import type { ReactNode } from 'react'
+import { Phone, Mail, MapPin, User, FileText } from 'lucide-react'
+import FacebookIcon from '../FacebookIcon'
+
+function FooterItem({ icon, children }: { icon: ReactNode; children: ReactNode }) {
+  return (
+    <div className="flex items-start gap-3">
+      {/* h-5 matches leading-5, so the icon is centred on the first line of text */}
+      <span className="flex h-5 flex-shrink-0 items-center text-accent">{icon}</span>
+      <div className="leading-5">{children}</div>
+    </div>
+  )
+}
+
+function FooterHeading({ children }: { children: ReactNode }) {
+  return (
+    <h3 className="mb-5 text-xs font-semibold uppercase tracking-widest text-white">{children}</h3>
+  )
+}
 
 export default function Footer() {
   const year = new Date().getFullYear()
 
   return (
-    <footer className="bg-primary text-gray-400 border-t border-white/5">
+    <footer className="border-t-4 border-accent bg-primary text-sm text-gray-400">
       <div className="container-custom py-14">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-3 md:gap-8">
           {/* Brand */}
           <div>
-            <div className="flex items-center gap-1.5 mb-4">
-              <span className="text-accent font-black text-xl tracking-tight">TESO</span>
-              <span className="text-white/70 font-medium text-sm tracking-widest uppercase">David</span>
+            <div className="flex items-center gap-1.5">
+              <span className="text-2xl font-black tracking-tight text-accent">TESO</span>
+              <span className="text-sm font-medium uppercase tracking-widest text-white/70">
+                David
+              </span>
             </div>
-            <p className="text-sm leading-relaxed text-gray-500">
-              Zemní práce a kontejnerová doprava<br />ve Zlínském kraji od roku 1993.
-            </p>
           </div>
 
-          {/* Navigation */}
+          {/* Company details */}
           <div>
-            <h3 className="text-white font-semibold mb-5 text-sm uppercase tracking-wider">Navigace</h3>
-            <ul className="space-y-2.5 text-sm">
-              {[
-                ['/', 'Domů'],
-                ['/sluzby', 'Služby'],
-                ['/galerie', 'Galerie'],
-                ['/o-nas', 'O nás'],
-                ['/kontakt', 'Kontakt'],
-              ].map(([to, label]) => (
-                <li key={to}>
-                  <Link to={to} className="hover:text-accent transition-colors">{label}</Link>
-                </li>
-              ))}
-            </ul>
+            <FooterHeading>Provozovatel</FooterHeading>
+            <div className="space-y-4">
+              <FooterItem icon={<User size={15} />}>
+                <span className="font-medium text-gray-200">Petr David</span>
+              </FooterItem>
+              <FooterItem icon={<MapPin size={15} />}>
+                Lešná 34
+                <br />
+                756 41 Lešná
+              </FooterItem>
+              <FooterItem icon={<FileText size={15} />}>
+                <dl className="grid grid-cols-[auto_1fr] gap-x-3 gap-y-1">
+                  <dt className="text-gray-500">IČO</dt>
+                  <dd className="text-gray-300">45173281</dd>
+                  <dt className="text-gray-500">DIČ</dt>
+                  <dd className="text-gray-300">CZ6402031592</dd>
+                </dl>
+              </FooterItem>
+            </div>
           </div>
 
           {/* Contact */}
           <div>
-            <h3 className="text-white font-semibold mb-5 text-sm uppercase tracking-wider">Kontakt</h3>
-            <ul className="space-y-3 text-sm">
-              <li>
-                <a href="tel:+420736121255" className="inline-flex items-center gap-2.5 hover:text-accent transition-colors">
-                  <Phone size={14} className="text-accent flex-shrink-0" /> +420 736 121 255
-                </a>
-              </li>
-              <li>
-                <a href="mailto:kontakt@tesodavid.cz" className="inline-flex items-center gap-2.5 hover:text-accent transition-colors">
-                  <Mail size={14} className="text-accent flex-shrink-0" /> kontakt@tesodavid.cz
-                </a>
-              </li>
-              <li className="inline-flex items-start gap-2.5">
-                <MapPin size={14} className="text-accent flex-shrink-0 mt-0.5" />
-                <span>Lešná 34, 756 41 Lešná</span>
-              </li>
-              <li className="pt-1 text-xs text-gray-600">
-                IČO: 45173281 | DIČ: CZ6402031592
-              </li>
-            </ul>
+            <FooterHeading>Kontakt</FooterHeading>
+            <div className="space-y-4">
+              <a href="tel:+420736121255" className="block transition-colors hover:text-accent">
+                <FooterItem icon={<Phone size={15} />}>+420 736 121 255</FooterItem>
+              </a>
+              <a
+                href="mailto:kontakt@tesodavid.cz"
+                className="block transition-colors hover:text-accent"
+              >
+                <FooterItem icon={<Mail size={15} />}>kontakt@tesodavid.cz</FooterItem>
+              </a>
+              {/* TODO: change to <a href="..."> once the Facebook page URL is known */}
+              <FooterItem icon={<FacebookIcon size={15} />}>TESO – Petr David</FooterItem>
+            </div>
           </div>
         </div>
 
-        <div className="mt-12 pt-6 border-t border-white/5 text-center text-xs text-gray-600">
+        <div className="mt-12 border-t border-white/10 pt-6 text-xs text-gray-500">
           © {year} TESO – Petr David. Všechna práva vyhrazena.
         </div>
       </div>

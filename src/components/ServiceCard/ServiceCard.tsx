@@ -10,16 +10,16 @@ interface ServiceCardProps {
 
 export default function ServiceCard({ icon, title, description, linkTo }: ServiceCardProps) {
   const content = (
-    <div className="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group h-full flex flex-col">
-      <div className="icon-box bg-orange-50 text-accent mb-5 group-hover:bg-accent group-hover:text-white transition-all duration-300">
+    <div className="group flex h-full flex-col rounded-2xl border border-gray-100 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+      <div className="icon-box mb-5 bg-orange-50 text-accent transition-all duration-300 group-hover:bg-accent group-hover:text-white">
         {icon}
       </div>
-      <h3 className="text-lg font-bold text-primary mb-2 group-hover:text-accent transition-colors">
+      <h3 className="mb-2 text-lg font-bold text-primary transition-colors group-hover:text-accent">
         {title}
       </h3>
-      <p className="text-gray-500 text-sm leading-relaxed flex-grow">{description}</p>
+      <p className="flex-grow text-sm leading-relaxed text-gray-500">{description}</p>
       {linkTo && (
-        <span className="mt-5 inline-flex items-center gap-1.5 text-accent text-sm font-semibold group-hover:gap-3 transition-all duration-200">
+        <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-accent transition-all duration-200 group-hover:gap-3">
           Více informací <ArrowRight size={14} />
         </span>
       )}
@@ -27,7 +27,11 @@ export default function ServiceCard({ icon, title, description, linkTo }: Servic
   )
 
   if (linkTo) {
-    return <Link to={linkTo} className="block h-full">{content}</Link>
+    return (
+      <Link to={linkTo} className="block h-full">
+        {content}
+      </Link>
+    )
   }
   return content
 }

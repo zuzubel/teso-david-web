@@ -1,12 +1,19 @@
 import { useState } from 'react'
 import { NavLink, Link } from 'react-router-dom'
 import { Phone, Menu, X } from 'lucide-react'
+import { getService, servicePath } from '../../data/services'
+
+// Home is reachable via the logo; /sluzby overview still exists but isn't in the menu
+const serviceLinks = ['kontejnerova-doprava', 'nakladni-autodoprava', 'zemni-prace']
+  .map(getService)
+  .filter((s) => s !== undefined)
+  .map((s) => ({ to: servicePath(s), label: s.navLabel }))
 
 const navLinks = [
-  { to: '/', label: 'Domů' },
-  { to: '/sluzby', label: 'Služby' },
-  { to: '/galerie', label: 'Galerie' },
-  { to: '/o-nas', label: 'O nás' },
+  ...serviceLinks,
+  // Hidden for now – pages still exist at these routes
+  // { to: '/galerie', label: 'Galerie' },
+  // { to: '/o-nas', label: 'O nás' },
   { to: '/kontakt', label: 'Kontakt' },
 ]
 
@@ -24,12 +31,11 @@ export default function Header() {
           </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden md:flex items-center gap-1">
+          <nav className="hidden lg:flex items-center gap-1">
             {navLinks.map((link) => (
               <NavLink
                 key={link.to}
                 to={link.to}
-                end={link.to === '/'}
                 className={({ isActive }) =>
                   `text-sm font-medium px-4 py-2 rounded-lg transition-colors ${
                     isActive ? 'text-accent bg-white/5' : 'text-gray-400 hover:text-white hover:bg-white/5'
@@ -49,7 +55,7 @@ export default function Header() {
 
           {/* Mobile hamburger */}
           <button
-            className="md:hidden p-2 rounded-lg text-gray-400 hover:text-white hover:bg-white/10 transition-colors"
+            className="lg:hidden p-2 rounded-lg text-gray-400 hover:text-white hover:bg-white/10 transition-colors"
             onClick={() => setMenuOpen((v) => !v)}
             aria-label="Přepnout menu"
           >
@@ -60,13 +66,12 @@ export default function Header() {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="md:hidden bg-primary border-t border-white/10">
+        <div className="lg:hidden bg-primary border-t border-white/10">
           <nav className="container-custom py-4 flex flex-col gap-1">
             {navLinks.map((link) => (
               <NavLink
                 key={link.to}
                 to={link.to}
-                end={link.to === '/'}
                 onClick={() => setMenuOpen(false)}
                 className={({ isActive }) =>
                   `px-4 py-2.5 rounded-lg text-sm font-medium transition-colors ${
