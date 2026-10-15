@@ -1,10 +1,7 @@
-interface FacebookIconProps {
-  size?: number
-  className?: string
-}
+import type { IconProps } from './LineIcon'
 
 // Facebook logo (Simple Icons, CC0) – lucide-react's Facebook icon is deprecated
-export default function FacebookIcon({ size = 24, className }: FacebookIconProps) {
+export default function FacebookIcon({ size = 24, className }: IconProps) {
   return (
     <svg
       width={size}

@@ -19,8 +19,8 @@ export default function ServiceBlock({ service, reverse = false, id }: ServiceBl
     >
       {/* Info column */}
       <div className="flex flex-col rounded-2xl border border-gray-100 bg-white p-8 shadow-sm lg:w-2/5">
-        <div className="icon-box mb-6 bg-orange-50 text-accent">
-          <Icon size={28} />
+        <div className="mb-6 flex h-12 items-center text-accent">
+          <Icon size={48} />
         </div>
         <h2 className="mb-4 text-2xl font-bold tracking-tight text-primary md:text-3xl">
           {service.title}
