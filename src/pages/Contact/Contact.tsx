@@ -19,6 +19,7 @@ export default function Contact() {
         title="Kontakt"
         subtitle="Jsme tu pro vás. Zavolejte nebo napište – rádi vám pomůžeme."
         showCta={false}
+        compact
       />
 
       <section id="kontakt-sekce" className="py-20">

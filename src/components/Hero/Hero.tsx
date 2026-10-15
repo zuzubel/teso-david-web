@@ -1,16 +1,21 @@
+import type { ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 import { Phone, ArrowRight } from 'lucide-react'
 
 interface HeroProps {
   title: string
-  subtitle: string
+  subtitle?: ReactNode
   showCta?: boolean
+  /** Smaller banner with less vertical padding (e.g. service detail pages) */
+  compact?: boolean
 }
 
-export default function Hero({ title, subtitle, showCta = true }: HeroProps) {
+export default function Hero({ title, subtitle, showCta = true, compact = false }: HeroProps) {
   return (
     <section
-      className="relative bg-primary text-white py-24 md:py-40 overflow-hidden"
+      className={`relative overflow-hidden bg-primary text-white ${
+        compact ? 'py-16 md:py-24' : 'py-24 md:py-40'
+      }`}
       aria-label="Úvodní banner"
     >
       {/* Subtle dot grid */}
@@ -23,30 +28,37 @@ export default function Hero({ title, subtitle, showCta = true }: HeroProps) {
       />
 
       {/* Bottom fade */}
-      <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-primary to-transparent" />
+      <div className="absolute bottom-0 left-0 h-24 w-full bg-gradient-to-t from-primary to-transparent" />
 
       {/* Orange accent bar */}
-      <div className="absolute top-0 left-0 w-full h-1 bg-accent" />
+      <div className="absolute left-0 top-0 h-1 w-full bg-accent" />
 
       <div className="container-custom relative z-10 text-center">
-        <div className="inline-flex items-center gap-2 bg-accent/10 border border-accent/20 rounded-full px-4 py-1.5 text-accent text-sm font-medium mb-6">
-          <span className="w-1.5 h-1.5 rounded-full bg-accent" />
-          Zlínský kraj · od roku 1993
-        </div>
-
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight tracking-tighter">
+        <h1
+          className={`text-4xl font-black leading-tight tracking-tighter md:text-5xl lg:text-6xl ${
+            subtitle || showCta ? 'mb-6' : ''
+          }`}
+        >
           {title}
         </h1>
-        <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed">
-          {subtitle}
-        </p>
+        {subtitle && (
+          <p className="mx-auto mb-10 max-w-2xl text-lg leading-relaxed text-gray-400 md:text-xl">
+            {subtitle}
+          </p>
+        )}
 
         {showCta && (
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/kontakt#formulare" className="btn-primary text-lg px-8 py-4 inline-flex items-center gap-2">
+          <div className="flex flex-col justify-center gap-4 sm:flex-row">
+            <Link
+              to="/kontakt#formulare"
+              className="btn-primary inline-flex items-center gap-2 px-8 py-4 text-lg"
+            >
               Nezávazná poptávka <ArrowRight size={18} />
             </Link>
-            <a href="tel:+420736121255" className="btn-secondary text-lg px-8 py-4 inline-flex items-center gap-2">
+            <a
+              href="tel:+420736121255"
+              className="btn-secondary inline-flex items-center gap-2 px-8 py-4 text-lg"
+            >
               <Phone size={18} /> +420 736 121 255
             </a>
           </div>
