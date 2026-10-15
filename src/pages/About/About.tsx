@@ -114,7 +114,7 @@ export default function About() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
             {equipment.map((e) => (
               <div key={e.name} className="bg-white rounded-2xl p-5 shadow-sm border border-gray-100 flex items-center gap-4">
-                <div className="icon-box bg-orange-50 text-accent flex-shrink-0">
+                <div className="icon-box bg-accent-50 text-accent flex-shrink-0">
                   {e.icon}
                 </div>
                 <div>
@@ -135,7 +135,7 @@ export default function About() {
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-12">
               {values.map((v) => (
                 <div key={v.title} className="bg-white border border-gray-100 rounded-2xl p-7 shadow-sm">
-                  <div className="icon-box bg-orange-50 text-accent mx-auto mb-5">
+                  <div className="icon-box bg-accent-50 text-accent mx-auto mb-5">
                     {v.icon}
                   </div>
                   <h3 className="font-bold text-primary mb-2">{v.title}</h3>

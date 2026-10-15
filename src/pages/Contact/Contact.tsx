@@ -34,7 +34,7 @@ export default function Contact() {
                   href="tel:+420736121255"
                   className="flex items-center gap-4 p-5 bg-white border border-gray-100 rounded-2xl shadow-sm hover:border-accent hover:shadow-md transition-all duration-200 group"
                 >
-                  <div className="icon-box bg-orange-50 text-accent group-hover:bg-accent group-hover:text-white transition-all duration-200">
+                  <div className="icon-box bg-accent-50 text-accent group-hover:bg-accent group-hover:text-white transition-all duration-200">
                     <Phone size={20} />
                   </div>
                   <div>
@@ -48,7 +48,7 @@ export default function Contact() {
                   href="mailto:kontakt@tesodavid.cz"
                   className="flex items-center gap-4 p-5 bg-white border border-gray-100 rounded-2xl shadow-sm hover:border-accent hover:shadow-md transition-all duration-200 group"
                 >
-                  <div className="icon-box bg-orange-50 text-accent group-hover:bg-accent group-hover:text-white transition-all duration-200">
+                  <div className="icon-box bg-accent-50 text-accent group-hover:bg-accent group-hover:text-white transition-all duration-200">
                     <Mail size={20} />
                   </div>
                   <div>
@@ -58,7 +58,7 @@ export default function Contact() {
                 </a>
 
                 <div className="flex items-start gap-4 p-5 bg-white border border-gray-100 rounded-2xl shadow-sm">
-                  <div className="icon-box bg-orange-50 text-accent">
+                  <div className="icon-box bg-accent-50 text-accent">
                     <MapPin size={20} />
                   </div>
                   <div>
@@ -71,7 +71,7 @@ export default function Contact() {
                 </div>
 
                 <div className="flex items-start gap-4 p-5 bg-white border border-gray-100 rounded-2xl shadow-sm">
-                  <div className="icon-box bg-orange-50 text-accent">
+                  <div className="icon-box bg-accent-50 text-accent">
                     <Building2 size={20} />
                   </div>
                   <div>

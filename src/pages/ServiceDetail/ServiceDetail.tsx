@@ -2,7 +2,7 @@ import { Helmet } from 'react-helmet-async'
 import { Navigate, useParams } from 'react-router-dom'
 import Hero from '../../components/Hero/Hero'
 import ServiceBlock from '../../components/ServiceBlock/ServiceBlock'
-import ServicesCta from '../../components/ServicesCta/ServicesCta'
+import CtaBanner from '../../components/CtaBanner/CtaBanner'
 import { getService, servicePath } from '../../data/services'
 
 export default function ServiceDetail() {
@@ -34,7 +34,11 @@ export default function ServiceDetail() {
         </div>
       </section>
 
-      <ServicesCta />
+      <CtaBanner
+        title="Máte zájem o naše služby?"
+        subtitle="Kontaktujte nás pro nezávaznou cenovou nabídku."
+        formLinkLabel="Napsat zprávu"
+      />
     </>
   )
 }

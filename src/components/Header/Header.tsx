@@ -1,19 +1,12 @@
 import { useState } from 'react'
 import { NavLink, Link } from 'react-router-dom'
 import { Phone, Menu, X } from 'lucide-react'
-import { getService, servicePath } from '../../data/services'
+import { featuredServices, servicePath } from '../../data/services'
 
-// Home is reachable via the logo; /sluzby overview still exists but isn't in the menu
-const serviceLinks = ['kontejnerova-doprava', 'nakladni-autodoprava', 'zemni-prace']
-  .map(getService)
-  .filter((s) => s !== undefined)
-  .map((s) => ({ to: servicePath(s), label: s.navLabel }))
-
+// Home is reachable via the logo. The /sluzby overview, /galerie and /o-nas pages exist
+// (see App.tsx) but are intentionally left out of the menu for now.
 const navLinks = [
-  ...serviceLinks,
-  // Hidden for now – pages still exist at these routes
-  // { to: '/galerie', label: 'Galerie' },
-  // { to: '/o-nas', label: 'O nás' },
+  ...featuredServices.map((s) => ({ to: servicePath(s), label: s.navLabel })),
   { to: '/kontakt', label: 'Kontakt' },
 ]
 
@@ -21,24 +14,26 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
 
   return (
-    <header className="bg-primary/95 backdrop-blur-sm text-white sticky top-0 z-50 border-b border-white/5">
+    <header className="sticky top-0 z-50 border-b-2 border-accent bg-sage text-primary">
       <div className="container-custom">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-1.5" onClick={() => setMenuOpen(false)}>
-            <span className="text-accent font-black text-xl tracking-tight">TESO</span>
-            <span className="text-white/80 font-medium text-sm tracking-widest uppercase">David</span>
+            <span className="text-xl font-black tracking-tight text-accent">TESO</span>
+            <span className="text-lg font-bold text-primary">David</span>
           </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden lg:flex items-center gap-1">
+          <nav className="hidden items-center gap-1 lg:flex">
             {navLinks.map((link) => (
               <NavLink
                 key={link.to}
                 to={link.to}
                 className={({ isActive }) =>
-                  `text-sm font-medium px-4 py-2 rounded-lg transition-colors ${
-                    isActive ? 'text-accent bg-white/5' : 'text-gray-400 hover:text-white hover:bg-white/5'
+                  `rounded-lg px-4 py-2 text-sm font-medium transition-colors ${
+                    isActive
+                      ? 'bg-white/70 text-accent'
+                      : 'text-gray-700 hover:bg-white/50 hover:text-accent'
                   }`
                 }
               >
@@ -47,7 +42,7 @@ export default function Header() {
             ))}
             <a
               href="tel:+420736121255"
-              className="ml-4 btn-primary text-sm py-2 inline-flex items-center gap-2"
+              className="btn-primary ml-4 inline-flex items-center gap-2 py-2 text-sm"
             >
               <Phone size={14} /> +420 736 121 255
             </a>
@@ -55,7 +50,7 @@ export default function Header() {
 
           {/* Mobile hamburger */}
           <button
-            className="lg:hidden p-2 rounded-lg text-gray-400 hover:text-white hover:bg-white/10 transition-colors"
+            className="rounded-lg p-2 text-olive-700 transition-colors hover:bg-white/50 hover:text-accent lg:hidden"
             onClick={() => setMenuOpen((v) => !v)}
             aria-label="Přepnout menu"
           >
@@ -66,16 +61,18 @@ export default function Header() {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="lg:hidden bg-primary border-t border-white/10">
-          <nav className="container-custom py-4 flex flex-col gap-1">
+        <div className="border-t border-sage-200 bg-sage lg:hidden">
+          <nav className="container-custom flex flex-col gap-1 py-4">
             {navLinks.map((link) => (
               <NavLink
                 key={link.to}
                 to={link.to}
                 onClick={() => setMenuOpen(false)}
                 className={({ isActive }) =>
-                  `px-4 py-2.5 rounded-lg text-sm font-medium transition-colors ${
-                    isActive ? 'text-accent bg-white/5' : 'text-gray-400 hover:text-white hover:bg-white/5'
+                  `rounded-lg px-4 py-2.5 text-sm font-medium transition-colors ${
+                    isActive
+                      ? 'bg-white/70 text-accent'
+                      : 'text-gray-700 hover:bg-white/50 hover:text-accent'
                   }`
                 }
               >
@@ -84,7 +81,7 @@ export default function Header() {
             ))}
             <a
               href="tel:+420736121255"
-              className="mt-3 btn-primary text-center text-sm py-3 inline-flex items-center justify-center gap-2"
+              className="btn-primary mt-3 inline-flex items-center justify-center gap-2 py-3 text-center text-sm"
             >
               <Phone size={15} /> +420 736 121 255
             </a>

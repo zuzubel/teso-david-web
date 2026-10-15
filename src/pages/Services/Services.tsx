@@ -1,7 +1,7 @@
 import { Helmet } from 'react-helmet-async'
 import Hero from '../../components/Hero/Hero'
 import ServiceBlock from '../../components/ServiceBlock/ServiceBlock'
-import ServicesCta from '../../components/ServicesCta/ServicesCta'
+import CtaBanner from '../../components/CtaBanner/CtaBanner'
 import { services } from '../../data/services'
 
 export default function Services() {
@@ -43,7 +43,11 @@ export default function Services() {
         </div>
       </section>
 
-      <ServicesCta />
+      <CtaBanner
+        title="Máte zájem o naše služby?"
+        subtitle="Kontaktujte nás pro nezávaznou cenovou nabídku."
+        formLinkLabel="Napsat zprávu"
+      />
     </>
   )
 }
