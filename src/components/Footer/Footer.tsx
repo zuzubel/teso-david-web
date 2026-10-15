@@ -1,27 +1,28 @@
 import { Link } from 'react-router-dom'
+import { Phone, Mail, MapPin } from 'lucide-react'
 
 export default function Footer() {
   const year = new Date().getFullYear()
 
   return (
-    <footer className="bg-primary text-gray-300">
-      <div className="container-custom py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <footer className="bg-primary text-gray-400 border-t border-white/5">
+      <div className="container-custom py-14">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           {/* Brand */}
           <div>
-            <div className="flex items-center gap-2 mb-4">
-              <span className="text-accent font-black text-2xl">TESO</span>
-              <span className="text-white font-semibold text-lg">David</span>
+            <div className="flex items-center gap-1.5 mb-4">
+              <span className="text-accent font-black text-xl tracking-tight">TESO</span>
+              <span className="text-white/70 font-medium text-sm tracking-widest uppercase">David</span>
             </div>
-            <p className="text-sm leading-relaxed">
-              Zemní práce a kontejnerová doprava ve Zlínském kraji od roku 1993.
+            <p className="text-sm leading-relaxed text-gray-500">
+              Zemní práce a kontejnerová doprava<br />ve Zlínském kraji od roku 1993.
             </p>
           </div>
 
           {/* Navigation */}
           <div>
-            <h3 className="text-white font-semibold mb-4">Navigace</h3>
-            <ul className="space-y-2 text-sm">
+            <h3 className="text-white font-semibold mb-5 text-sm uppercase tracking-wider">Navigace</h3>
+            <ul className="space-y-2.5 text-sm">
               {[
                 ['/', 'Domů'],
                 ['/sluzby', 'Služby'],
@@ -30,9 +31,7 @@ export default function Footer() {
                 ['/kontakt', 'Kontakt'],
               ].map(([to, label]) => (
                 <li key={to}>
-                  <Link to={to} className="hover:text-accent transition-colors">
-                    {label}
-                  </Link>
+                  <Link to={to} className="hover:text-accent transition-colors">{label}</Link>
                 </li>
               ))}
             </ul>
@@ -40,27 +39,30 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h3 className="text-white font-semibold mb-4">Kontakt</h3>
-            <ul className="space-y-2 text-sm">
+            <h3 className="text-white font-semibold mb-5 text-sm uppercase tracking-wider">Kontakt</h3>
+            <ul className="space-y-3 text-sm">
               <li>
-                <a href="tel:+420736121255" className="hover:text-accent transition-colors">
-                  +420 736 121 255
+                <a href="tel:+420736121255" className="inline-flex items-center gap-2.5 hover:text-accent transition-colors">
+                  <Phone size={14} className="text-accent flex-shrink-0" /> +420 736 121 255
                 </a>
               </li>
               <li>
-                <a href="mailto:kontakt@tesodavid.cz" className="hover:text-accent transition-colors">
-                  kontakt@tesodavid.cz
+                <a href="mailto:kontakt@tesodavid.cz" className="inline-flex items-center gap-2.5 hover:text-accent transition-colors">
+                  <Mail size={14} className="text-accent flex-shrink-0" /> kontakt@tesodavid.cz
                 </a>
               </li>
-              <li>Lešná 34, 756 41 Lešná</li>
-              <li className="pt-2 text-xs text-gray-500">
+              <li className="inline-flex items-start gap-2.5">
+                <MapPin size={14} className="text-accent flex-shrink-0 mt-0.5" />
+                <span>Lešná 34, 756 41 Lešná</span>
+              </li>
+              <li className="pt-1 text-xs text-gray-600">
                 IČO: 45173281 | DIČ: CZ6402031592
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="mt-10 pt-6 border-t border-gray-700 text-center text-xs text-gray-500">
+        <div className="mt-12 pt-6 border-t border-white/5 text-center text-xs text-gray-600">
           © {year} TESO – Petr David. Všechna práva vyhrazena.
         </div>
       </div>

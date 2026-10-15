@@ -1,11 +1,12 @@
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
+import { Shovel, Trash2, Truck, Forklift, Leaf, ArrowRight, Phone, CheckCircle } from 'lucide-react'
 import Hero from '../../components/Hero/Hero'
 
 const categories = [
   {
     id: 'earthworks',
-    icon: '🚜',
+    icon: <Shovel size={28} />,
     title: 'Zemní práce',
     description: 'Profesionální zemní práce s moderní technikou. Disponujeme bagry různých velikostí, včetně minibagrů pro práci v omezených prostorech.',
     items: [
@@ -19,7 +20,7 @@ const categories = [
   },
   {
     id: 'container-transport',
-    icon: '🗑️',
+    icon: <Trash2 size={28} />,
     title: 'Kontejnerová doprava',
     description: 'Zajišťujeme přistavení kontejnerů a odvoz odpadu, suti a dalšího materiálu. Flexibilní termíny a rychlá reakce.',
     items: [
@@ -33,7 +34,7 @@ const categories = [
   },
   {
     id: 'material-delivery',
-    icon: '🚛',
+    icon: <Truck size={28} />,
     title: 'Dovoz materiálu',
     description: 'Doručíme stavební materiál přímo tam, kde ho potřebujete. Pracujeme s lokálními dodavateli pro zajištění nejlepší ceny.',
     items: [
@@ -47,7 +48,7 @@ const categories = [
   },
   {
     id: 'hydraulic-arm',
-    icon: '🦾',
+    icon: <Forklift size={28} />,
     title: 'Práce hydraulickou rukou',
     description: 'Hydraulická ruka umožňuje manipulaci s těžkým a objemným materiálem bez nutnosti těžké nakladačové techniky.',
     items: [
@@ -61,7 +62,7 @@ const categories = [
   },
   {
     id: 'green-maintenance',
-    icon: '🌿',
+    icon: <Leaf size={28} />,
     title: 'Údržba zeleně a pozemků',
     description: 'Staráme se o pozemky soukromníků, firem i obcí. Od pravidelného sekání trávy po komplexní terénní úpravy.',
     items: [
@@ -95,28 +96,33 @@ export default function Services() {
 
       <section className="py-20">
         <div className="container-custom">
-          <div className="space-y-16">
+          <div className="space-y-12">
             {categories.map((cat, index) => (
               <article
                 key={cat.title}
                 id={cat.id}
-                className={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-10 items-start`}
+                className={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-8 items-stretch`}
               >
-                <div className="lg:w-2/5">
-                  <div className="text-6xl mb-4">{cat.icon}</div>
-                  <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4">{cat.title}</h2>
-                  <p className="text-gray-600 leading-relaxed mb-6">{cat.description}</p>
-                  <Link to="/kontakt#formulare" className="btn-primary">
-                    Poptávka zdarma
+                {/* Info column */}
+                <div className="lg:w-2/5 bg-white border border-gray-100 rounded-2xl p-8 shadow-sm flex flex-col">
+                  <div className="icon-box bg-orange-50 text-accent mb-6">
+                    {cat.icon}
+                  </div>
+                  <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4 tracking-tight">{cat.title}</h2>
+                  <p className="text-gray-500 leading-relaxed mb-8 flex-grow">{cat.description}</p>
+                  <Link to="/kontakt#formulare" className="btn-primary self-start inline-flex items-center gap-2">
+                    Poptávka zdarma <ArrowRight size={15} />
                   </Link>
                 </div>
-                <div className="lg:w-3/5 bg-gray-50 rounded-2xl p-8">
-                  <h3 className="text-lg font-semibold text-primary mb-4">Co zahrnujeme:</h3>
-                  <ul className="space-y-3">
+
+                {/* Items column */}
+                <div className="lg:w-3/5 bg-gray-50 rounded-2xl p-8 flex flex-col">
+                  <h3 className="text-sm font-semibold text-gray-400 uppercase tracking-widest mb-6">Co zahrnujeme</h3>
+                  <ul className="space-y-4">
                     {cat.items.map((item) => (
                       <li key={item} className="flex items-start gap-3">
-                        <span className="text-accent font-bold mt-0.5 flex-shrink-0">✓</span>
-                        <span className="text-gray-700 text-sm">{item}</span>
+                        <CheckCircle size={16} className="text-accent flex-shrink-0 mt-0.5" />
+                        <span className="text-gray-700 text-sm leading-relaxed">{item}</span>
                       </li>
                     ))}
                   </ul>
@@ -128,16 +134,16 @@ export default function Services() {
       </section>
 
       {/* CTA */}
-      <section className="bg-accent py-16">
+      <section className="bg-accent py-20">
         <div className="container-custom text-center">
-          <h2 className="text-3xl font-black text-white mb-4">Máte zájem o naše služby?</h2>
-          <p className="text-orange-100 mb-8">Kontaktujte nás pro nezávaznou cenovou nabídku.</p>
+          <h2 className="text-3xl font-black text-white mb-4 tracking-tight">Máte zájem o naše služby?</h2>
+          <p className="text-orange-100 mb-10 text-lg">Kontaktujte nás pro nezávaznou cenovou nabídku.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="tel:+420736121255" className="bg-white text-accent font-bold px-8 py-4 rounded-lg hover:bg-orange-50 transition-colors">
-              +420 736 121 255
+            <a href="tel:+420736121255" className="bg-white text-accent font-bold px-8 py-4 rounded-xl hover:bg-orange-50 hover:-translate-y-0.5 hover:shadow-lg transition-all duration-200 inline-flex items-center justify-center gap-2">
+              <Phone size={18} /> +420 736 121 255
             </a>
-            <Link to="/kontakt#formulare" className="border-2 border-white text-white font-bold px-8 py-4 rounded-lg hover:bg-orange-600 transition-colors">
-              Napsat zprávu
+            <Link to="/kontakt#formulare" className="border-2 border-white text-white font-bold px-8 py-4 rounded-xl hover:bg-white hover:text-accent hover:-translate-y-0.5 hover:shadow-lg transition-all duration-200 inline-flex items-center justify-center gap-2">
+              Napsat zprávu <ArrowRight size={16} />
             </Link>
           </div>
         </div>

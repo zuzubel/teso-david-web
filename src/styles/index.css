@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;0,14..32,900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -16,22 +16,26 @@
 
 @layer components {
   .btn-primary {
-    @apply bg-accent text-white px-6 py-3 rounded-lg font-semibold hover:bg-orange-600 transition-colors duration-200 inline-block;
+    @apply bg-accent text-white px-6 py-3 rounded-xl font-semibold hover:bg-orange-600 hover:-translate-y-0.5 hover:shadow-lg transition-all duration-200 inline-block;
   }
 
   .btn-secondary {
-    @apply border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-primary transition-colors duration-200 inline-block;
+    @apply border-2 border-white text-white px-6 py-3 rounded-xl font-semibold hover:bg-white hover:text-primary transition-all duration-200 inline-block;
   }
 
   .section-title {
-    @apply text-3xl md:text-4xl font-bold text-primary mb-4;
+    @apply text-3xl md:text-4xl font-bold text-primary mb-4 tracking-tight;
   }
 
   .section-subtitle {
-    @apply text-lg text-gray-600 mb-12;
+    @apply text-lg text-gray-500 mb-12;
   }
 
   .container-custom {
     @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .icon-box {
+    @apply w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0;
   }
 }
