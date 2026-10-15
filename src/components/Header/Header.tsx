@@ -5,8 +5,9 @@ import { Phone, Menu, X } from 'lucide-react'
 const navLinks = [
   { to: '/', label: 'Domů' },
   { to: '/sluzby', label: 'Služby' },
-  { to: '/galerie', label: 'Galerie' },
-  { to: '/o-nas', label: 'O nás' },
+  // Hidden for now – pages still exist at these routes
+  // { to: '/galerie', label: 'Galerie' },
+  // { to: '/o-nas', label: 'O nás' },
   { to: '/kontakt', label: 'Kontakt' },
 ]
 
