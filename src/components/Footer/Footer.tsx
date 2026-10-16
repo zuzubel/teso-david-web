@@ -14,7 +14,7 @@ function FooterItem({ icon, children }: { icon: ReactNode; children: ReactNode }
 
 function FooterHeading({ children }: { children: ReactNode }) {
   return (
-    <h3 className="mb-5 text-xs font-semibold uppercase tracking-widest text-primary">
+    <h3 className="mb-3 text-xs font-semibold uppercase tracking-widest text-primary">
       {children}
     </h3>
   )
@@ -25,8 +25,8 @@ export default function Footer() {
 
   return (
     <footer className="border-t-2 border-accent bg-sage text-sm text-gray-700">
-      <div className="container-custom py-14">
-        <div className="grid grid-cols-1 gap-10 md:grid-cols-3 md:gap-8">
+      <div className="container-custom py-8">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-8">
           {/* Brand */}
           <div>
             <div className="flex items-center gap-1.5">
@@ -38,7 +38,7 @@ export default function Footer() {
           {/* Company details */}
           <div>
             <FooterHeading>Provozovatel</FooterHeading>
-            <div className="space-y-4">
+            <div className="space-y-2.5">
               <FooterItem icon={<User size={15} />}>
                 <span className="font-semibold text-primary">Petr David</span>
               </FooterItem>
@@ -49,10 +49,10 @@ export default function Footer() {
               </FooterItem>
               <FooterItem icon={<FileText size={15} />}>
                 <dl className="grid grid-cols-[auto_1fr] gap-x-3 gap-y-1">
-                  <dt className="text-gray-500">IČO</dt>
-                  <dd className="text-gray-700">45173281</dd>
-                  <dt className="text-gray-500">DIČ</dt>
-                  <dd className="text-gray-700">CZ6402031592</dd>
+                  <dt className="text-gray-700">IČO</dt>
+                  <dd className="text-primary">45173281</dd>
+                  <dt className="text-gray-700">DIČ</dt>
+                  <dd className="text-primary">CZ6402031592</dd>
                 </dl>
               </FooterItem>
             </div>
@@ -61,7 +61,7 @@ export default function Footer() {
           {/* Contact */}
           <div>
             <FooterHeading>Kontakt</FooterHeading>
-            <div className="space-y-4">
+            <div className="space-y-2.5">
               <a href="tel:+420736121255" className="block transition-colors hover:text-accent">
                 <FooterItem icon={<Phone size={15} />}>+420 736 121 255</FooterItem>
               </a>
@@ -77,7 +77,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 border-t border-sage-200 pt-6 text-xs text-gray-500">
+        <div className="mt-8 border-t border-sage-200 pt-4 text-xs text-gray-700">
           © {year} TESO – Petr David. Všechna práva vyhrazena.
         </div>
       </div>
