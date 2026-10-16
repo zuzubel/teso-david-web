@@ -66,6 +66,25 @@ export default function Home() {
         subtitle="Zavolejte nám nebo vyplňte poptávkový formulář – odpovíme obratem."
         formLinkLabel="Nezávazná poptávka"
       />
+
+      {/* Service area */}
+      <section className="bg-gray-50 py-16" aria-labelledby="area-heading">
+        <div className="container-custom">
+          <div className="mx-auto max-w-3xl text-center">
+            <h2 id="area-heading" className="section-title">
+              Oblast působení
+            </h2>
+            <p className="leading-relaxed text-gray-500">
+              Naše firma sídlí v Lešné u Valašského Meziříčí a primárně sloužíme zákazníkům v okolí{' '}
+              <strong className="text-primary">
+                Valašského Meziříčí, Rožnova pod Radhoštěm, Vsetína, Zlína
+              </strong>{' '}
+              a celého Zlínského kraje. V případě větších zakázek jsme schopni operovat i mimo tento
+              region.
+            </p>
+          </div>
+        </div>
+      </section>
     </>
   )
 }
