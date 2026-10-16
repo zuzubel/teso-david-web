@@ -1,6 +1,7 @@
 import { useState } from 'react'
-import { NavLink, Link } from 'react-router-dom'
-import { Phone, Menu, X } from 'lucide-react'
+import { NavLink, Link, useLocation } from 'react-router-dom'
+import { Menu, X } from 'lucide-react'
+import PhoneLink from '../PhoneLink'
 import { featuredServices, servicePath } from '../../data/services'
 
 // Home is reachable via the logo. The /sluzby overview, /galerie and /o-nas pages exist
@@ -12,13 +13,22 @@ const navLinks = [
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
+  const { pathname } = useLocation()
+
+  const handleLogoClick = () => {
+    setMenuOpen(false)
+    // Already on the home page: the route doesn't change, so ScrollToTop won't run
+    if (pathname === '/') {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    }
+  }
 
   return (
     <header className="sticky top-0 z-50 border-b-2 border-accent bg-sage text-primary">
       <div className="container-custom">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-1.5" onClick={() => setMenuOpen(false)}>
+          <Link to="/" className="flex items-center gap-1.5" onClick={handleLogoClick}>
             <span className="text-xl font-black tracking-tight text-accent">TESO</span>
             <span className="text-lg font-bold text-primary">David</span>
           </Link>
@@ -40,12 +50,10 @@ export default function Header() {
                 {link.label}
               </NavLink>
             ))}
-            <a
-              href="tel:+420736121255"
+            <PhoneLink
+              iconSize={14}
               className="btn-primary ml-4 inline-flex items-center gap-2 py-2 text-sm"
-            >
-              <Phone size={14} /> +420 736 121 255
-            </a>
+            />
           </nav>
 
           {/* Mobile hamburger */}
@@ -79,12 +87,10 @@ export default function Header() {
                 {link.label}
               </NavLink>
             ))}
-            <a
-              href="tel:+420736121255"
+            <PhoneLink
+              iconSize={15}
               className="btn-primary mt-3 inline-flex items-center justify-center gap-2 py-3 text-center text-sm"
-            >
-              <Phone size={15} /> +420 736 121 255
-            </a>
+            />
           </nav>
         </div>
       )}

@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react'
 import { Link } from 'react-router-dom'
-import { Phone, ArrowRight } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
+import PhoneLink from '../PhoneLink'
 
 interface HeroProps {
   title: string
@@ -14,7 +15,7 @@ export default function Hero({ title, subtitle, showCta = true, compact = false 
   return (
     <section
       className={`border-b border-gray-100 bg-white text-primary ${
-        compact ? 'py-16 md:py-24' : 'py-24 md:py-40'
+        compact ? 'py-12 md:py-24' : 'py-24 md:py-40'
       }`}
       aria-label="Úvodní banner"
     >
@@ -27,7 +28,11 @@ export default function Hero({ title, subtitle, showCta = true, compact = false 
           {title}
         </h1>
         {subtitle && (
-          <p className="mx-auto mb-10 max-w-2xl text-lg leading-relaxed text-gray-600 md:text-xl">
+          <p
+            className={`mx-auto max-w-2xl text-lg leading-relaxed text-gray-600 md:text-xl ${
+              showCta ? 'mb-10' : ''
+            }`}
+          >
             {subtitle}
           </p>
         )}
@@ -40,12 +45,10 @@ export default function Hero({ title, subtitle, showCta = true, compact = false 
             >
               Nezávazná poptávka <ArrowRight size={18} />
             </Link>
-            <a
-              href="tel:+420736121255"
+            <PhoneLink
+              iconSize={18}
               className="btn-secondary inline-flex items-center gap-2 px-8 py-4 text-lg"
-            >
-              <Phone size={18} /> +420 736 121 255
-            </a>
+            />
           </div>
         )}
       </div>
