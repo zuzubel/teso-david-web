@@ -50,7 +50,7 @@ export default function Header() {
 
           {/* Mobile hamburger */}
           <button
-            className="rounded-lg p-2 text-olive-700 transition-colors hover:bg-white/50 hover:text-accent lg:hidden"
+            className="rounded-lg p-2 text-gray-800 transition-colors hover:bg-white/50 hover:text-accent lg:hidden"
             onClick={() => setMenuOpen((v) => !v)}
             aria-label="Přepnout menu"
           >

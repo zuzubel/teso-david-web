@@ -13,12 +13,12 @@ export default {
           100: '#f4dadd',
           700: '#7f2029',
         },
-        // Light sage – header and footer background
+        // Sage – header and footer background
         sage: {
-          DEFAULT: '#d3daa6',
-          200: '#bcc48a',
+          DEFAULT: '#bfc888',
+          200: '#a6af70',
         },
-        // Olive – phone button text and menu icon. A darker shade than the design's #a3aa68,
+        // Olive – phone button text in the hero. A darker shade than the design's #a3aa68,
         // which is too low-contrast for text on white.
         olive: {
           700: '#6b7238',
