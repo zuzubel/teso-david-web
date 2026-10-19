@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react'
 import { Phone, Mail, MapPin, User, FileText } from 'lucide-react'
 import FacebookIcon from '../icons/FacebookIcon'
+import { company, emailHref, phoneHref } from '../../data/company'
 
 function FooterItem({ icon, children }: { icon: ReactNode; children: ReactNode }) {
   return (
@@ -40,19 +41,19 @@ export default function Footer() {
             <FooterHeading>Provozovatel</FooterHeading>
             <div className="space-y-2.5">
               <FooterItem icon={<User size={15} />}>
-                <span className="font-semibold text-primary">Petr David</span>
+                <span className="font-semibold text-primary">{company.owner}</span>
               </FooterItem>
               <FooterItem icon={<MapPin size={15} />}>
-                Lešná 34
+                {company.address.street}
                 <br />
-                756 41 Lešná
+                {company.address.postalCode} {company.address.city}
               </FooterItem>
               <FooterItem icon={<FileText size={15} />}>
                 <dl className="grid grid-cols-[auto_1fr] gap-x-3 gap-y-1">
                   <dt className="text-gray-700">IČO</dt>
-                  <dd className="text-primary">45173281</dd>
+                  <dd className="text-primary">{company.ico}</dd>
                   <dt className="text-gray-700">DIČ</dt>
-                  <dd className="text-primary">CZ6402031592</dd>
+                  <dd className="text-primary">{company.dic}</dd>
                 </dl>
               </FooterItem>
             </div>
@@ -62,23 +63,30 @@ export default function Footer() {
           <div>
             <FooterHeading>Kontakt</FooterHeading>
             <div className="space-y-2.5">
-              <a href="tel:+420736121255" className="block transition-colors hover:text-accent">
-                <FooterItem icon={<Phone size={15} />}>+420 736 121 255</FooterItem>
+              <a href={phoneHref} className="block transition-colors hover:text-accent">
+                <FooterItem icon={<Phone size={15} />}>{company.phoneDisplay}</FooterItem>
               </a>
-              <a
-                href="mailto:kontakt@tesodavid.cz"
-                className="block transition-colors hover:text-accent"
-              >
-                <FooterItem icon={<Mail size={15} />}>kontakt@tesodavid.cz</FooterItem>
+              <a href={emailHref} className="block transition-colors hover:text-accent">
+                <FooterItem icon={<Mail size={15} />}>{company.email}</FooterItem>
               </a>
-              {/* TODO: change to <a href="..."> once the Facebook page URL is known */}
-              <FooterItem icon={<FacebookIcon size={15} />}>TESO – Petr David</FooterItem>
+              {company.facebook.url ? (
+                <a
+                  href={company.facebook.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block transition-colors hover:text-accent"
+                >
+                  <FooterItem icon={<FacebookIcon size={15} />}>{company.facebook.name}</FooterItem>
+                </a>
+              ) : (
+                <FooterItem icon={<FacebookIcon size={15} />}>{company.facebook.name}</FooterItem>
+              )}
             </div>
           </div>
         </div>
 
         <div className="mt-8 border-t border-sage-200 pt-4 text-xs text-gray-700">
-          © {year} TESO – Petr David. Všechna práva vyhrazena.
+          © {year} {company.name}. Všechna práva vyhrazena.
         </div>
       </div>
     </footer>

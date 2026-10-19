@@ -1,35 +1,36 @@
 import { Helmet } from 'react-helmet-async'
+import { company } from '../data/company'
 
 export default function JsonLd() {
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
-    name: 'TESO – Petr David',
-    description: 'Zemní práce, kontejnerová doprava a dovoz materiálu ve Zlínském kraji od roku 1993.',
+    name: company.name,
+    description: `Zemní práce, kontejnerová doprava a dovoz materiálu ve Zlínském kraji od roku ${company.foundingYear}.`,
     url: 'https://tesodavid.cz',
-    telephone: '+420736121255',
-    email: 'kontakt@tesodavid.cz',
+    telephone: company.phone,
+    email: company.email,
     address: {
       '@type': 'PostalAddress',
-      streetAddress: 'Lešná 34',
-      addressLocality: 'Lešná',
-      postalCode: '756 41',
-      addressCountry: 'CZ',
+      streetAddress: company.address.street,
+      addressLocality: company.address.city,
+      postalCode: company.address.postalCode,
+      addressCountry: company.address.country,
     },
     geo: {
       '@type': 'GeoCoordinates',
-      latitude: 49.4719,
-      longitude: 17.9436,
+      ...company.geo,
     },
     openingHoursSpecification: {
       '@type': 'OpeningHoursSpecification',
-      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-      opens: '07:00',
-      closes: '17:00',
+      dayOfWeek: company.openingHours.days,
+      opens: company.openingHours.opens,
+      closes: company.openingHours.closes,
     },
-    foundingDate: '1993',
+    foundingDate: String(company.foundingYear),
     areaServed: 'Zlínský kraj',
-    vatID: 'CZ6402031592',
+    vatID: company.dic,
+    ...(company.facebook.url && { sameAs: [company.facebook.url] }),
   }
 
   return (
