@@ -1,8 +1,18 @@
 import { Helmet } from 'react-helmet-async'
-import { Phone, Mail, MapPin, Building2, Map } from 'lucide-react'
+import { Phone, Mail, MapPin, Building2 } from 'lucide-react'
 import Hero from '../../components/Hero/Hero'
 import ContactForm from '../../components/ContactForm/ContactForm'
-import { company, emailHref, fullAddress, googleMapsUrl, phoneHref } from '../../data/company'
+import {
+  company,
+  emailHref,
+  fullAddress,
+  googleMapsEmbedUrl,
+  googleMapsUrl,
+  phoneHref,
+} from '../../data/company'
+import { scrollToElement } from '../../utils/scroll'
+
+const MAP_ID = 'mapa'
 
 export default function Contact() {
   return (
@@ -71,9 +81,11 @@ export default function Contact() {
                 </a>
 
                 <a
-                  href={googleMapsUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href={`#${MAP_ID}`}
+                  onClick={(e) => {
+                    e.preventDefault()
+                    scrollToElement(MAP_ID)
+                  }}
                   className="group flex items-start gap-4 rounded-2xl border border-gray-100 bg-white p-5 shadow-sm transition-all duration-200 hover:border-accent hover:shadow-md"
                 >
                   <div className="icon-box bg-accent-50 text-accent transition-all duration-200 group-hover:bg-accent group-hover:text-white">
@@ -87,7 +99,7 @@ export default function Contact() {
                       {fullAddress}
                     </address>
                     <p className="mt-0.5 text-xs text-gray-400">
-                      {company.address.note} · otevřít v Google Maps
+                      {company.address.note} · zobrazit na mapě
                     </p>
                   </div>
                 </a>
@@ -129,24 +141,28 @@ export default function Contact() {
             </div>
           </div>
 
-          {/* Map placeholder */}
-          <div className="mt-16">
+          {/* Map */}
+          <div id={MAP_ID} className="mt-16">
             <h2 className="mb-6 text-xl font-bold tracking-tight text-primary">Kde nás najdete</h2>
-            <div className="flex h-64 items-center justify-center overflow-hidden rounded-2xl border border-gray-100 bg-gray-50 shadow-sm">
-              <div className="text-center text-gray-400">
-                <div className="icon-box mx-auto mb-4 bg-white text-accent shadow-sm">
-                  <Map size={22} />
-                </div>
-                <p className="text-sm font-medium text-primary">{fullAddress}</p>
-                <a
-                  href={googleMapsUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-2 inline-block text-sm font-medium text-accent hover:underline"
-                >
-                  Zobrazit na Google Maps →
-                </a>
-              </div>
+            <div className="h-72 overflow-hidden rounded-2xl border border-gray-100 bg-gray-50 shadow-sm md:h-96">
+              <iframe
+                src={googleMapsEmbedUrl}
+                title={`Mapa – ${fullAddress}`}
+                className="h-full w-full border-0"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
+            <div className="mt-3 flex flex-wrap items-center justify-between gap-2 text-sm">
+              <span className="font-medium text-primary">{fullAddress}</span>
+              <a
+                href={googleMapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-medium text-accent hover:underline"
+              >
+                Otevřít v Google Maps →
+              </a>
             </div>
           </div>
         </div>
